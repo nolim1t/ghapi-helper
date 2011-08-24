@@ -2,6 +2,7 @@ var sys = require("sys");
 var e = require("express")
 var http = require("http")
 var request = require('request');
+var querystring = require('querystring');
 
 // Need GHCONSUMER and GHSECRET libraries
 
@@ -24,7 +25,8 @@ app.get('/callback', function(req, res) {
     request({uri: access_token + req.query.code}, function (err, reqres, reqbody) {
         if (!err) {
             console.log("response returned: " + reqbody);
-            res.send(reqbody);
+            console.log("Access Token: " + querystring.parse(reqbody)['access_token']);
+            res.send(JSON.stringify(querystring.parse(reqbody)));
         } else {
             res.send("Error");
         }
