@@ -7,7 +7,8 @@ var request = require('request');
 
 var consumer = process.env.GHCONSUMER;
 var secret = process.env.GHSECRET;
-var auth_url = "https://github.com/login/oauth/authorize?client_id=" + consumer + "&redirect_uri=" + encodeURIComponent("http://localhost:8888/callback")
+var scope = encodeURIComponent("user,public_repo");
+var auth_url = "https://github.com/login/oauth/authorize?client_id=" + consumer + "&redirect_uri=" + encodeURIComponent("http://localhost:8888/callback") + "&scope=" + scope
 var access_token = "https://github.com/login/oauth/access_token?client_id=" + consumer + "&redirect_uri=" + encodeURIComponent("http://localhost:8888/callback") + "&client_secret=" + secret + "&code="
 
 sys.puts("Authorization URL")
