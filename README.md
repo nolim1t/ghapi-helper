@@ -13,8 +13,14 @@ You need to have the following npm libraries
 - express (2.4.4 tested)
 - request (2.1.1 tested)
 
+Before starting you need to set the following environment variables
+
+- GHCONSUMER
+- GHSECRET
+
 ## TODO
 
+- Make it more configurable particularly the port number
 - Make it more user friendly
 - Write some tests
 - Refactor
